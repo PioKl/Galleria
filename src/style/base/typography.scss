@@ -1,0 +1,39 @@
+.display {
+  font-size: var(--f-display);
+  line-height: var(--f-display-lh);
+}
+
+h1 {
+  font-size: var(--h-f-xl);
+  line-height: var(--h-lh-xl);
+}
+h2 {
+  font-size: var(--sh-f-xl);
+  line-height: var(--sh-lh-xl);
+}
+h3 {
+  font-size: var(--h-f-l);
+  line-height: var(--h-lh-l);
+}
+
+h4 {
+  font-size: var(--sh-f-l);
+  line-height: var(--sh-lh-l);
+}
+
+h5 {
+  font-size: var(--h-f-m);
+  line-height: var(--h-lh-m);
+}
+
+.linkOne {
+  font-size: var(--link-f-one);
+  line-height: var(--link-lh-one);
+  letter-spacing: var(--link-ls-one);
+}
+
+.linkTwo {
+  font-size: var(--link-f-two);
+  line-height: var(--link-lh-two);
+  letter-spacing: var(--link-ls-two);
+}

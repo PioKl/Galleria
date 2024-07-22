@@ -1,0 +1,114 @@
+@use "resolutions" as *;
+
+:root {
+  --c-black: #000000;
+  --c-darkGray: #7d7d7d;
+  --c-gray: #e5e5e5;
+  --c-lightGray: #f3f3f3;
+  --c-white: #ffffff;
+
+  /* Display */
+  --f-display: 20rem;
+
+  /* Heading */
+  --h-f-xl: 5.6rem;
+  --h-f-l: 2.4rem;
+  --h-f-m: 1.8rem;
+
+  /* Sub Heading */
+  --sh-f-xl: 1.5rem;
+  --sh-f-l: 1.3rem;
+
+  /* Links */
+  --link-f-one: 1.2rem;
+  --link-f-two: 0.9rem;
+
+  /* Display Line Height */
+  --f-display-lh: 15rem;
+
+  /* Heading Line Height */
+  --h-lh-xl: 6.4rem;
+  --h-lh-l: 2.9rem;
+  --h-lh-m: 2.2rem;
+
+  /* Sub Heading Line Height */
+  --sh-lh-xl: 1.9rem;
+  --sh-lh-l: 1.7rem;
+
+  /* Links Line Height */
+  --link-lh-one: 1.5rem;
+  --link-lh-Two: 1.1rem;
+
+  /* Links Letter Spacing */
+  --link-ls-one: 0.25rem;
+  --link-ls-two: 0.2rem;
+
+  /* Body */
+  --b-f: 1.4rem;
+
+  /* Body Line Height */
+  --b-lh: 2.8rem;
+
+  /* Fonts Family */
+  --f-family: "Libre Baskerville", serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  text-decoration: none;
+  list-style: none;
+}
+
+html {
+  font-size: 62.5%; //10px/16px = 62.5%, 1rem = 10px;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--f-family);
+  font-weight: 700;
+  font-size: var(--b-f);
+  line-height: var(--b-lh);
+}
+
+.wrapper {
+  width: min(1360px, calc(100% - 48px));
+  margin-inline: auto;
+
+  @include tablet {
+    width: min(1360px, calc(100% - 80px));
+  }
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+  vertical-align: middle;
+  font-style: italic;
+  background-repeat: no-repeat;
+  background-size: cover;
+  shape-margin: 1rem;
+}
+
+input,
+textarea,
+button,
+select {
+  font: inherit;
+}
