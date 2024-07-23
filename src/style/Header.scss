@@ -1,0 +1,19 @@
+@use "./base/resolutions.scss" as *;
+@use "./base/typography.scss" as *;
+
+.header {
+  padding-block: 2.4rem;
+  border-bottom: 1px solid var(--c-gray);
+
+  @include tablet {
+    padding-block: 2.9rem;
+  }
+  @include desktopSmall {
+    padding-block: 4rem;
+  }
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
