@@ -37,3 +37,20 @@ h5 {
   line-height: var(--link-lh-two);
   letter-spacing: var(--link-ls-two);
 }
+
+.linkSlide {
+  text-transform: uppercase;
+  font-size: clamp(var(--link-f-two), 0.614rem + 0.763vw, var(--link-f-one));
+  line-height: var(--link-lh-one);
+  letter-spacing: clamp(
+    var(--link-ls-two),
+    0.152rem + 0.127vw,
+    var(--link-ls-one)
+  );
+  color: var(--c-darkGray);
+
+  &:hover,
+  &:focus {
+    color: var(--c-black);
+  }
+}
