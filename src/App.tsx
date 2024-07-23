@@ -1,9 +1,12 @@
 import "./style/App.scss";
+import Header from "./components/Header";
+import GalleryHome from "./components/GalleryHome";
 
 function App() {
   return (
-    <div className="wrapper">
-      <h1>Gallery</h1>
+    <div>
+      <Header />
+      <GalleryHome />
     </div>
   );
 }
