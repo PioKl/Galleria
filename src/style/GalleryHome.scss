@@ -1,0 +1,85 @@
+@use "./base/resolutions.scss" as *;
+@use "./base/typography.scss" as *;
+
+.galleryHome {
+  display: grid;
+  margin-block: 2.4rem;
+  gap: 2.4rem;
+  //grid-auto-rows: 6.4rem;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+    grid-auto-rows: auto;
+
+    grid-auto-rows: 5.68rem;
+
+    & :nth-child(odd) {
+      grid-column: 1 / 2;
+    }
+    & :nth-child(even) {
+      grid-column: 2 / 3;
+    }
+
+    & :nth-child(1) {
+      grid-row: 1 / 4;
+    }
+    & :nth-child(2) {
+      grid-row: 1 / 6;
+    }
+    & :nth-child(3) {
+      grid-row: 4 / 7;
+    }
+    & :nth-child(4) {
+      grid-row: 6 / 9;
+    }
+    & :nth-child(5) {
+      grid-row: 7 / 11;
+    }
+    & :nth-child(6) {
+      grid-row: 9 / 12;
+    }
+    & :nth-child(7) {
+      grid-row: 11 / 17;
+    }
+    & :nth-child(8) {
+      grid-row: 12 / 15;
+    }
+    & :nth-child(9) {
+      grid-row: 17 / 22;
+    }
+    & :nth-child(10) {
+      grid-row: 15 / 18;
+    }
+    & :nth-child(11) {
+      grid-column: 2 / 3;
+      grid-row: 18 / 23;
+    }
+    & :nth-child(12) {
+      grid-column: 1 / 2;
+      grid-row: 22 / 25;
+    }
+    & :nth-child(13) {
+      grid-column: 2 / 3;
+      grid-row: 23 / 27;
+    }
+    & :nth-child(14) {
+      grid-column: 1 / 2;
+      grid-row: 25 / 31;
+    }
+    & :nth-child(15) {
+      grid-column: 2 / 3;
+      grid-row: 27 / 31;
+    }
+  }
+
+  &__picture {
+    height: 100%;
+  }
+
+  &__image {
+    width: 100%;
+    height: inherit;
+    object-fit: cover;
+  }
+}
