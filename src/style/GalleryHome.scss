@@ -85,76 +85,61 @@
     }
 
     & > :nth-child(1) {
-      display: block;
       grid-row: 1 / span 5;
     }
     & :nth-child(2) {
-      display: block;
       grid-row: 1 / span 8;
     }
 
     & :nth-child(3) {
-      display: block;
       grid-row: 1 / span 6;
     }
 
     & :nth-child(4) {
-      display: block;
       grid-row: 1 / span 5;
     }
 
     & :nth-child(5) {
-      display: block;
       grid-row: 6 / span 7;
     }
 
     & :nth-child(6) {
-      display: block;
       grid-row: 9 / span 6;
     }
 
     & :nth-child(7) {
-      display: block;
       grid-row: 7 / span 10;
     }
 
     & :nth-child(8) {
-      display: block;
       grid-row: 6 / span 5;
     }
 
     & :nth-child(9) {
-      display: block;
       grid-row: 13 / span 9;
     }
 
     & :nth-child(10) {
-      display: block;
       grid-row: 15 / span 5;
     }
 
     & :nth-child(11) {
-      display: block;
       grid-row: 11 / span 9;
     }
 
     & :nth-child(12) {
-      display: block;
       grid-row: 22 / span 5;
     }
 
     & :nth-child(13) {
-      display: block;
       grid-row: 20 / span 7;
     }
 
     & :nth-child(14) {
-      display: block;
       grid-row: 17 / span 10;
     }
 
     & :nth-child(15) {
-      display: block;
       grid-row: 20 / span 7;
     }
   }
