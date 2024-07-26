@@ -26,6 +26,11 @@ h5 {
   line-height: var(--h-lh-m);
 }
 
+h6 {
+  font-size: var(--sh-f-l);
+  line-height: var(--sh-lh-l);
+}
+
 .linkOne {
   font-size: var(--link-f-one);
   line-height: var(--link-lh-one);
@@ -36,9 +41,10 @@ h5 {
   font-size: var(--link-f-two);
   line-height: var(--link-lh-two);
   letter-spacing: var(--link-ls-two);
+  color: var(--c-darkGray);
 }
 
-.linkSlide {
+.link {
   text-transform: uppercase;
   font-size: clamp(var(--link-f-two), 0.614rem + 0.763vw, var(--link-f-one));
   line-height: var(--link-lh-one);
@@ -50,7 +56,8 @@ h5 {
   color: var(--c-darkGray);
 
   &:hover,
-  &:focus {
+  &:focus-visible {
+    //focus-visible - tylko dla klawiatura/tabulatora focus
     color: var(--c-black);
   }
 }
