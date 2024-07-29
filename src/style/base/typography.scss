@@ -61,3 +61,14 @@ h6 {
     color: var(--c-black);
   }
 }
+
+.linkSource {
+  @extend .linkTwo;
+  text-transform: uppercase;
+
+  &:hover,
+  &:focus-visible {
+    //focus-visible - tylko dla klawiatura/tabulatora focus
+    color: var(--c-black);
+  }
+}
