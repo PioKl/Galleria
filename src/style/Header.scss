@@ -1,5 +1,6 @@
 @use "./base/resolutions.scss" as *;
 @use "./base/typography.scss" as *;
+@use "./base/mixins.scss" as *;
 
 .header {
   padding-block: 2.4rem;
@@ -10,10 +11,17 @@
   }
   @include desktopSmall {
     padding-block: 4rem;
+    @include wrapperDesktop;
   }
 }
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @include wrapper;
+
+  @include desktopSmall {
+    width: auto;
+  }
 }
