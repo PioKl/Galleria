@@ -1,14 +1,21 @@
 import "../style/GalleryHome.scss";
-import data from "../data/data.json";
 import { Gallery } from "../types/types";
+import { Link } from "react-router-dom";
 
-export default function GalleryHome() {
-  const gallery: Gallery[] = data;
-  console.log(gallery);
+interface GalleryHomeProps {
+  gallery: Gallery[];
+}
+
+const GalleryHome: React.FC<GalleryHomeProps> = ({ gallery }) => {
   return (
     <div className="galleryHome wrapper">
       {gallery.map((item, id) => (
-        <a href="#" className="galleryHome__item" key={id}>
+        <Link
+          to={{ pathname: `/slide/${id}` }}
+          state={item}
+          className="galleryHome__item"
+          key={id}
+        >
           <div className="galleryHome__quick-info">
             <div className="galleryHome__name-and-artist-container">
               <h3 className="galleryHome__name">{item.name}</h3>
@@ -25,8 +32,10 @@ export default function GalleryHome() {
               alt={item.name}
             />
           </picture>
-        </a>
+        </Link>
       ))}
     </div>
   );
-}
+};
+
+export default GalleryHome;
