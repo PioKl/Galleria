@@ -1,0 +1,15 @@
+@use "./resolutions.scss" as *;
+
+@mixin wrapper {
+  width: min(1360px, calc(100% - 48px));
+  margin-inline: auto;
+
+  @include tablet {
+    width: min(1360px, calc(100% - 80px));
+  }
+}
+
+@mixin wrapperDesktop {
+  width: min(1360px, calc(100% - 80px));
+  margin-inline: auto;
+}
