@@ -1,0 +1,40 @@
+@use "./base/resolutions.scss" as *;
+
+.modal-overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0 2.4rem;
+  background-color: rgba(var(--c-black-rgba), 0.85);
+  z-index: 999;
+}
+
+.modal-image {
+  display: grid;
+  justify-items: end;
+  &__button {
+    margin-bottom: 4.1rem;
+    color: var(--c-white);
+    text-transform: uppercase;
+    line-height: normal;
+    letter-spacing: 0.3rem;
+    background: transparent;
+    border: none;
+
+    &:hover,
+    &:focus-visible {
+      //focus-visible - tylko dla klawiatura/tabulatora focus
+      color: rgba(var(--c-white-rgba), 0.25);
+    }
+
+    @include desktopSmall {
+      cursor: pointer;
+    }
+  }
+}
