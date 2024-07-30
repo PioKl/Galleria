@@ -52,6 +52,39 @@
   }
 }
 
+.gallery-slide-view-image-container {
+  position: absolute;
+  margin: 1.6rem;
+
+  @include tablet {
+    bottom: 0;
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    padding: 1.4rem 1.6rem;
+    font-size: 1rem;
+    letter-spacing: 0.214rem;
+    line-height: normal;
+    background-color: rgba(var(--c-black-rgba), 0.75);
+    color: var(--c-white);
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 1.2rem;
+      height: 1.2rem;
+      margin-right: 1.4rem;
+      background-image: url("../assets//images/icon-view-image.svg");
+      background-repeat: no-repeat;
+    }
+  }
+}
+
 .gallery-slide-artwork-name-container {
   width: 83%;
   margin-top: -5.4rem;
