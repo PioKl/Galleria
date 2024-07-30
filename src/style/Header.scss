@@ -24,4 +24,10 @@
   @include desktopSmall {
     width: auto;
   }
+
+  &__link {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+  }
 }
