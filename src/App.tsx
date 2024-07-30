@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import data from "./data/data.json";
 import { Gallery } from "./types/types";
@@ -9,16 +10,19 @@ import ErrorPage from "./components/ErrorPage";
 
 function App() {
   const gallery: Gallery[] = data;
+  const [startSlider, setStartSlider] = useState(false);
   return (
     <Router basename={process.env.VITE_BASE_URL}>
-      <Header />
+      <Header startSlider={startSlider} setStartSlider={setStartSlider} />
       <main className="main">
         <Routes>
           <Route path="*" element={<ErrorPage />} />
           <Route path="/" element={<GalleryHome gallery={gallery} />} />
           <Route
             path="/slide/:slug"
-            element={<SingleGallerySlide gallery={gallery} />}
+            element={
+              <SingleGallerySlide gallery={gallery} startSlider={startSlider} />
+            }
           />
         </Routes>
       </main>
