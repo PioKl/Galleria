@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import data from "./data/data.json";
 import { Gallery } from "./types/types";
 import "./style/App.scss";
@@ -12,7 +12,7 @@ function App() {
   const gallery: Gallery[] = data;
   const [startSlider, setStartSlider] = useState(false);
   return (
-    <Router basename={process.env.VITE_BASE_URL}>
+    <Router>
       <Header startSlider={startSlider} setStartSlider={setStartSlider} />
       <main className="main">
         <Routes>
