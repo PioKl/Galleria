@@ -5,6 +5,7 @@ import "../style/SingleGallerySlide.scss";
 import iconBackButton from "../assets/images/icon-back-button.svg";
 import iconNextButton from "../assets/images/icon-next-button.svg";
 import ModalImage from "./ModalImage";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface SingleGallerySlideProps {
   gallery: Gallery[];
@@ -51,7 +52,7 @@ const SingleGallerySlide: React.FC<SingleGallerySlideProps> = ({
     if (startSlider) {
       const sliderInterval = setInterval(() => {
         handleNextSlideClick();
-      }, 3000);
+      }, 10000);
 
       return () => clearInterval(sliderInterval);
     }
@@ -67,70 +68,84 @@ const SingleGallerySlide: React.FC<SingleGallerySlideProps> = ({
         <ModalImage image={item.images.gallery} closeModal={closeModal} />
       )}
       <div className="gallery-slide-container">
-        <div className="gallery-slide-artwork-container wrapper">
-          <div className="gallery-slide-artwork-image-container">
-            <div className="gallery-slide-image-container">
-              <div className="gallery-slide-view-image-container">
-                <button
-                  className="gallery-slide-view-image-container__button"
-                  onClick={openModal}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={id}
+            transition={{ duration: 0.5 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="gallery-slide-artwork-container wrapper"
+          >
+            <div className="gallery-slide-artwork-image-container">
+              <div className="gallery-slide-image-container">
+                <div className="gallery-slide-view-image-container">
+                  <button
+                    className="gallery-slide-view-image-container__button"
+                    onClick={openModal}
+                  >
+                    View Image
+                  </button>
+                </div>
+                <picture className="gallery-slide-image-container__picture">
+                  <source
+                    media="(min-width: 768px)"
+                    srcSet={process.env.VITE_BASE_URL + item.images.hero.large}
+                  />
+                  <img
+                    className="gallery-slide-image-container__artwork"
+                    src={process.env.VITE_BASE_URL + item.images.hero.small}
+                    alt={item.name}
+                  />
+                </picture>
+                <motion.div
+                  initial={{ x: 20 }}
+                  animate={{ x: 0 }}
+                  transition={{ duration: 1 }}
+                  className="gallery-slide-artwork-name-container"
                 >
-                  View Image
-                </button>
+                  <h3 className="gallery-slide-artwork-name-container__name">
+                    {item.name}
+                  </h3>
+                  <span className="gallery-slide-artwork-name-container__artist">
+                    {item.artist.name}
+                  </span>
+                  <img
+                    className="gallery-slide-artwork-name-container__artist-image"
+                    src={process.env.VITE_BASE_URL + item.artist.image}
+                    alt={item.name}
+                    width={128}
+                    height={128}
+                  />
+                </motion.div>
               </div>
-              <picture className="gallery-slide-image-container__picture">
-                <source
-                  media="(min-width: 768px)"
-                  srcSet={process.env.VITE_BASE_URL + item.images.hero.large}
-                />
-                <img
-                  className="gallery-slide-image-container__artwork"
-                  src={process.env.VITE_BASE_URL + item.images.hero.small}
-                  alt={item.name}
-                />
-              </picture>
-              <div className="gallery-slide-artwork-name-container">
-                <h3 className="gallery-slide-artwork-name-container__name">
-                  {item.name}
-                </h3>
-                <span className="gallery-slide-artwork-name-container__artist">
-                  {item.artist.name}
-                </span>
-                <img
-                  className="gallery-slide-artwork-name-container__artist-image"
-                  src={process.env.VITE_BASE_URL + item.artist.image}
-                  alt={item.name}
-                  width={128}
-                  height={128}
-                />
+              <img
+                className="gallery-slide-image-container__artist"
+                src={process.env.VITE_BASE_URL + item.artist.image}
+                alt={item.name}
+                width={64}
+                height={64}
+              />
+            </div>
+            <div className="gallery-slide-artwork-description-container">
+              <span className="gallery-slide-artwork-description-container__year">
+                {item.year}
+              </span>
+              <p className="gallery-slide-artwork-description-container__description">
+                {item.description}
+              </p>
+              <div className="gallery-slide-artwork-description-container__link-container">
+                <a
+                  href={item.source}
+                  target="_blank"
+                  className="gallery-slide-artwork-description-container__link linkSource"
+                >
+                  Go to source
+                </a>
               </div>
             </div>
-            <img
-              className="gallery-slide-image-container__artist"
-              src={process.env.VITE_BASE_URL + item.artist.image}
-              alt={item.name}
-              width={64}
-              height={64}
-            />
-          </div>
-          <div className="gallery-slide-artwork-description-container">
-            <span className="gallery-slide-artwork-description-container__year">
-              {item.year}
-            </span>
-            <p className="gallery-slide-artwork-description-container__description">
-              {item.description}
-            </p>
-            <div className="gallery-slide-artwork-description-container__link-container">
-              <a
-                href={item.source}
-                target="_blank"
-                className="gallery-slide-artwork-description-container__link linkSource"
-              >
-                Go to source
-              </a>
-            </div>
-          </div>
-        </div>
+          </motion.div>
+        </AnimatePresence>
 
         <div className="gallery-slide-slider-container">
           <div
