@@ -72,3 +72,14 @@ h6 {
     color: var(--c-black);
   }
 }
+
+.errorLink {
+  border-bottom: 1px solid var(--c-darkGray);
+  color: var(--c-darkGray);
+  &:hover,
+  &:focus-visible {
+    //focus-visible - tylko dla klawiatura/tabulatora focus
+    color: var(--c-black);
+    border-color: var(--c-black);
+  }
+}
