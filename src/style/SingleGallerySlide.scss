@@ -255,8 +255,7 @@
     img {
       &:hover,
       &:focus-visible {
-        filter: brightness(0) saturate(100%) invert(70%) sepia(8%) saturate(11%)
-          hue-rotate(12deg) brightness(95%) contrast(90%);
+        opacity: 50%;
       }
     }
   }
