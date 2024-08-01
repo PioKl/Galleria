@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { Gallery } from "../types/types";
 import "../style/SingleGallerySlide.scss";
 import iconBackButton from "../assets/images/icon-back-button.svg";
@@ -10,11 +10,13 @@ import { motion, AnimatePresence } from "framer-motion";
 interface SingleGallerySlideProps {
   gallery: Gallery[];
   startSlider: boolean;
+  sliderButtonRef: React.RefObject<HTMLButtonElement>;
 }
 
 const SingleGallerySlide: React.FC<SingleGallerySlideProps> = ({
   gallery,
   startSlider,
+  sliderButtonRef,
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -58,8 +60,25 @@ const SingleGallerySlide: React.FC<SingleGallerySlideProps> = ({
     }
   }, [startSlider, handleNextSlideClick]);
 
+  //Jeśli nie ma slide z danym id np. slide/234 wtedy blokada przycisku odpowiedzialnego za slidera
+  useEffect(() => {
+    if (!item) {
+      sliderButtonRef.current && (sliderButtonRef.current.disabled = true);
+    }
+  }, [item, sliderButtonRef]);
+
   if (!item) {
-    return <div>Wrong Page</div>; // Gdy nie ma żadnego elementu (powiedzmy w adresie wyszukiwania będzie numer większy niż ilość elementów w galerii)
+    return (
+      <div className="gallery-slider-error">
+        <h2>Slide does not exist</h2>
+        <span>
+          Return to{" "}
+          <Link to="/" className="errorLink">
+            main page
+          </Link>
+        </span>
+      </div>
+    ); // Gdy nie ma żadnego elementu (powiedzmy w adresie wyszukiwania będzie numer większy niż ilość elementów w galerii)
   }
 
   return (
