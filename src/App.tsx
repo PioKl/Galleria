@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import data from "./data/data.json";
 import { Gallery } from "./types/types";
@@ -11,17 +11,29 @@ import ErrorPage from "./components/ErrorPage";
 function App() {
   const gallery: Gallery[] = data;
   const [startSlider, setStartSlider] = useState(false);
+  const sliderButtonRef = useRef(null);
   return (
     <Router>
-      <Header startSlider={startSlider} setStartSlider={setStartSlider} />
+      <Header
+        startSlider={startSlider}
+        setStartSlider={setStartSlider}
+        sliderButtonRef={sliderButtonRef}
+      />
       <main className="main">
         <Routes>
-          <Route path="*" element={<ErrorPage />} />
+          <Route
+            path="*"
+            element={<ErrorPage sliderButtonRef={sliderButtonRef} />}
+          />
           <Route path="/" element={<GalleryHome gallery={gallery} />} />
           <Route
             path="/slide/:slug"
             element={
-              <SingleGallerySlide gallery={gallery} startSlider={startSlider} />
+              <SingleGallerySlide
+                gallery={gallery}
+                startSlider={startSlider}
+                sliderButtonRef={sliderButtonRef}
+              />
             }
           />
         </Routes>
