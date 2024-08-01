@@ -1,0 +1,10 @@
+@use "./base/mixins.scss" as *;
+
+.error-container {
+  @include absoluteCenter;
+  text-align: center;
+
+  h2 {
+    margin-bottom: 2rem;
+  }
+}
