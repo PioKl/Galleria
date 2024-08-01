@@ -1,5 +1,6 @@
 @use "./base/resolutions.scss" as *;
 @use "./base/typography.scss" as *;
+@use "./base/mixins.scss" as *;
 
 .gallery-slide-container {
   padding-top: 2.4rem;
@@ -258,5 +259,14 @@
           hue-rotate(12deg) brightness(95%) contrast(90%);
       }
     }
+  }
+}
+
+.gallery-slider-error {
+  @include absoluteCenter;
+  text-align: center;
+
+  h2 {
+    margin-bottom: 2rem;
   }
 }
