@@ -29,5 +29,16 @@
     cursor: pointer;
     background-color: transparent;
     border: none;
+
+    &:disabled {
+      pointer-events: none;
+      color: var(--c-darkGray);
+      opacity: 50%;
+
+      &:hover {
+        color: var(--c-darkGray);
+        opacity: 50%;
+      }
+    }
   }
 }
